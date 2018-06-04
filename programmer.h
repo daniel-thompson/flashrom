@@ -73,6 +73,9 @@ enum programmer {
 #if CONFIG_DEDIPROG == 1
 	PROGRAMMER_DEDIPROG,
 #endif
+#if CONFIG_DEVELOPERBOX == 1
+	PROGRAMMER_DEVELOPERBOX,
+#endif
 #if CONFIG_RAYER_SPI == 1
 	PROGRAMMER_RAYER_SPI,
 #endif
@@ -168,6 +171,9 @@ enum bitbang_spi_master_type {
 #endif
 #if CONFIG_OGP_SPI == 1
 	BITBANG_SPI_MASTER_OGP,
+#endif
+#if CONFIG_DEVELOPERBOX == 1
+	BITBANG_SPI_MASTER_DEVELOPERBOX,
 #endif
 };
 
@@ -543,6 +549,12 @@ int linux_spi_init(void);
 #if CONFIG_DEDIPROG == 1
 int dediprog_init(void);
 extern const struct dev_entry devs_dediprog[];
+#endif
+
+/* developerbox_spi.c */
+#if CONFIG_DEVELOPERBOX == 1
+int developerbox_spi_init(void);
+extern const struct dev_entry devs_developerbox[];
 #endif
 
 /* ch341a_spi.c */
